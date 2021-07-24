@@ -6,4 +6,5 @@ app_name = 'mainapp'
 
 urlpatterns = [
     path('', index, name='index'),
+    # path('<int:links_menu>/', index, name='category'),
 ]
