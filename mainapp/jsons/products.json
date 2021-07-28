@@ -1,0 +1,22 @@
+[
+
+  {
+      "category": "Стулья",
+      "name": "Стул фамильный",
+      "image": "products_images/product-4_dBbT3iX.jpg",
+      "short_desc": "Уникальный дизайн",
+      "description": "Описание продукта",
+      "price": "3500.00",
+      "quantity": 12
+
+  },
+  {
+      "category": "Диваны",
+      "name": "Отличный диван",
+      "image": "products_images/product-3-sm.jpg",
+      "short_desc": "Вместительный",
+      "description": "Для всей семьи",
+      "price": "1979.56",
+      "quantity": 198
+  }
+]
