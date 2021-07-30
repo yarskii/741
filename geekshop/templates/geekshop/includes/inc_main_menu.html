@@ -9,9 +9,12 @@
             <a href="{% url 'auth:edit' %}" class="{% if request.resolver_match.namespace == 'auth' %}active{% endif %}">
                 {{ user.first_name|default:'Пользователь' }}
             </a>
-            <a href="{% url 'basket:view' %}">
+            <a href="{% url 'basket:view' %} " class="{% if request.resolver_match.namespace == 'basket' %}active{% endif %}">
                 <span>
-                    {% if basket %} ({{ basket|length }}) {% endif %}
+                    {% if basket %}
+                        {{ basket.0.total_cost|floatformat:0 }} руб
+                        ({{ basket.0.total_quantity }} шт)
+                    {% endif %}
                 </span>
             </a>
         </li>
