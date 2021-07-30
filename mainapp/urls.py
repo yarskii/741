@@ -1,10 +1,10 @@
 # from django.contrib import admin
 from django.urls import path
-from .views import index
+from .views import products
 
 app_name = 'mainapp'
 
 urlpatterns = [
-    path('', index, name='index'),
-    # path('<int:links_menu>/', index, name='category'),
+    path('', products, name='products_index'),
+    path('category/<int:pk>/', products, name='category'),
 ]
