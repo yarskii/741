@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    <div class="row col-3">
+    <div class="row col-3 mx-auto" style="margin-top: 150px;">
     <form class="form-horizontal" action="{% url 'auth:login' %}" method="post">
         {% csrf_token %}
             {% if next %}
