@@ -1,8 +1,19 @@
-from adminapp.views import users, user_create, user_update, user_delete, category_create, categories, category_update, \
-    category_delete, product_create, product_read, product_update, product_delete
+from adminapp.views import (
+    users,
+    user_create,
+    user_update,
+    user_delete,
+    category_create,
+    categories,
+    category_update,
+    category_delete,
+    product_create,
+    product_read,
+    product_update,
+    product_delete,
+    products
+    )
 from django.urls import path
-
-from mainapp.views import products
 
 app_name = 'adminapp'
 
