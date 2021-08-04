@@ -1,0 +1,24 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="margin-top: 150px;">
+    <div class="row">
+        <div class="user_avatar">
+            <img src="/media/{{ user.avatar }}" class="rounded-circle">
+        </div>
+    </div>
+    <div class="row">
+        <form class="form-horizontal" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ update_form.as_p }}
+            <input class="form-control btn btn-success" type="submit" value="сохранить">
+        </form>
+        <button class="btn btn-round form-control last">
+            <a href="{% url 'admin_staff:users' %}">
+                к списку пользователей
+            </a>
+        </button>
+    </div>
+</div>
+{% endblock %}
