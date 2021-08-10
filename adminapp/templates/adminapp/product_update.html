@@ -9,12 +9,12 @@
     <div class="row">
         <form class="form-horizontal" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ update_form.as_p }}
             <input class="form-control btn btn-success" type="submit" value="сохранить">
         </form>
         <button class="btn btn-round form-control last">
             <a href="{% url 'admin_staff:users' %}">
-                к списку пользователей
+                к списку продуктов
             </a>
         </button>
     </div>

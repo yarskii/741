@@ -20,9 +20,9 @@
                             <th>Краткое описание</th>
                             <th>Цена</th>
                             <th>Количество</th>
-                            <th>Подробнее</th>
-                            <th>Редактировать</th>
-                            <th>Удалить</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tfoot>
@@ -32,15 +32,15 @@
                             <th>Краткое описание</th>
                             <th>Цена</th>
                             <th>Количество</th>
-                            <th>Подробнее</th>
-                            <th>Редактировать</th>
-                            <th>Удалить</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                         </tfoot>
                         <tbody>
                         {% for product in objects %}
                             <tr>
-                                <td><img src="/media/{{ product.image }}" style="width: 370px; height: 370px;"></td>
+                                <td><img src="/media/{{ product.image }}" style="width: 100px; height: 100px;"></td>
                                 <td>{{ product.name }}</td>
                                 <td>{{ product.short_desc }}</td>
                                 <td>{{ product.price }}</td>
