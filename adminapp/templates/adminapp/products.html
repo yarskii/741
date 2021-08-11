@@ -20,9 +20,9 @@
                             <th>Краткое описание</th>
                             <th>Цена</th>
                             <th>Количество</th>
-                            <th>Подробнее</th>
-                            <th>Редактировать</th>
-                            <th>Удалить</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tfoot>
@@ -32,31 +32,31 @@
                             <th>Краткое описание</th>
                             <th>Цена</th>
                             <th>Количество</th>
-                            <th>Подробнее</th>
-                            <th>Редактировать</th>
-                            <th>Удалить</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                         </tfoot>
                         <tbody>
                         {% for product in objects %}
                             <tr>
-                                <td><img src="/media/{{ product.image }}" style="width: 370px; height: 370px;"></td>
+                                <td><img src="/media/{{ product.image }}" style="width: 100px; height: 100px;"></td>
                                 <td>{{ product.name }}</td>
                                 <td>{{ product.short_desc }}</td>
                                 <td>{{ product.price }}</td>
                                 <td>{{ product.quantity }}</td>
                                 <td class="text-center">
-                                    <a href="{% url 'admin_staff:products' category.pk %}"><button class="btn btn-secondary">
+                                    <a href="{% url 'admin_staff:products' product.pk %}"><button class="btn btn-secondary">
                                             подробнее</button>
                                         </a>
                                 </td>
                                 <td class="text-center">
-                                    <a href="{% url 'admin_staff:category_update' category.pk %}"><button class="btn btn-primary">
+                                    <a href="{% url 'admin_staff:product_update' product.pk %}"><button class="btn btn-primary">
                                             редактировать</button>
                                         </a>
                                 </td>
                                 <td class="text-center">
-                                    <a href="{% url 'admin_staff:category_delete' category.pk %}"><button class="btn btn-danger">
+                                    <a href="{% url 'admin_staff:product_delete' product.pk %}"><button class="btn btn-danger">
                                             удалить</button>
                                         </a>
                                 </td>
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <a href="{% url 'adminapp:product_create' category.pk %}">
+                <a href="{% url 'admin_staff:product_create' category.pk %}">
                     <button class="btn btn-success">Создать товар</button>
                 </a>
             </div>

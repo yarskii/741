@@ -2,7 +2,6 @@ from django.db import models
 
 
 class ProductCategory(models.Model):
-    objects = None
     name = models.CharField(
         verbose_name='имя',
         max_length=64,
@@ -26,7 +25,6 @@ class ProductCategory(models.Model):
 
 
 class Product(models.Model):
-    objects = None
     category = models.ForeignKey(
         ProductCategory,
         on_delete=models.CASCADE,
@@ -59,6 +57,7 @@ class Product(models.Model):
         verbose_name='количество на складе',
         default=0,
     )
+
 
     def __str__(self):
         return f"{self.name} ({self.category.name}) - {self.pk}"

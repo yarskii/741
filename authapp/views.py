@@ -69,4 +69,3 @@ def edit(request):
     content = {'title': title, 'edit_form': edit_form, 'basket': get_basket(request.user)}
 
     return render(request, 'authapp/edit.html', content)
-
