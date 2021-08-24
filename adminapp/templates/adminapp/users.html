@@ -51,6 +51,12 @@
                                 {{ object.email }}
                             </td>
                             <td class="user_role">
+                                {% if object.is_staff %}
+                                <i class="fa fa-check-circle"></i>
+                                {% else %}
+                                <i class="fa fa-times-circle"></i>
+                                {% endif %}
+                            </td>
                             <td class="text-center">
                                 {% if object.is_superuser %}
                                 <i class="fa fa-check-circle"></i>
@@ -59,14 +65,18 @@
                                 {% endif %}
                             </td>
                             <td class="card-footer">
-                                    <a href="{% url 'admin_staff:user_update' object.pk %}"><button class="btn btn-primary">
-                                        редактировать</button>
-                                    </a>
+                                <a href="{% url 'admin_staff:user_update' object.pk %}">
+                                    <button class="btn btn-primary">
+                                        редактировать
+                                    </button>
+                                </a>
                             </td>
                             <td class="card-footer">
-                                    <a href="{% url 'admin_staff:user_delete' object.pk %}"><button class="btn btn-danger">
-                                        удалить</button>
-                                    </a>
+                                <a href="{% url 'admin_staff:user_delete' object.pk %}">
+                                    <button class="btn btn-danger">
+                                        удалить
+                                    </button>
+                                </a>
                             </td>
                         </tr>
                         {% endfor%}

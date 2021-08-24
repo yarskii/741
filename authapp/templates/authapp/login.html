@@ -4,21 +4,29 @@
 
 {% block content %}
 
-    <div class="row col-3 mx-auto" style="margin-top: 150px;">
+<div class="row col-3 mx-auto" style="margin-top: 150px;">
     <form class="form-horizontal" action="{% url 'auth:login' %}" method="post">
         {% csrf_token %}
-            {% if next %}
-                <input type="hidden" name="next" value="{{ next }}">
-            {% endif %}
+        {% if next %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {% endif %}
         {{ login_form.as_p }}
         <br>
         <input class="form-control btn-success" type="submit" value="войти">
     </form>
-        <button class="btn btn-round form-control">
-            <a href="{% url 'auth:register' %}" class="">
-                зарегистрироваться
-            </a>
-        </button>
-    </div>
+    <button class="btn btn-round form-control">
+        <a href="{% url 'auth:register' %}" class="">
+            зарегистрироваться
+        </a>
+    </button>
+    <button class="btn btn-round form-control">
+        <a href="{% url 'social:begin' 'vk-oauth2' %}?next=/">
+            Вход через ВКонтакте
+        </a>
+    </button>
+    <button class="btn btn-round form-control">
+        <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+    </button>
+</div>
 
 {% endblock %}
