@@ -1,35 +1,58 @@
 <div class="header clearfix">
     <a href="{% url 'index' %}" class="logo"></a>
     <ul class="menu">
-        <li><a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">домой</a></li>
-        <li><a href="{% url 'products:products_index' %}" class="{% if request.resolver_match.namespace == 'products' %}active{% endif %}">продукты</a></li>
-        <li><a href="{% url 'contacts' %}" class="{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}">контакты</a></li>
+        <li><a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">домой</a>
+        </li>
+        <li><a href="{% url 'products:products_index' %}"
+               class="{% if request.resolver_match.namespace == 'products' %}active{% endif %}">продукты</a></li>
+        <li><a href="{% url 'contacts' %}"
+               class="{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}">контакты</a></li>
         {% if user.is_authenticated %}
         <li>
-            <a href="{% url 'auth:edit' %}" class="{% if request.resolver_match.namespace == 'auth' %}active{% endif %}">
-                {{ user.first_name|default:'Пользователь' }}
-            </a>
-            <a href="{% url 'basket:view' %} " class="{% if request.resolver_match.namespace == 'basket' %}active{% endif %}">
+            <div class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                    {{ user.first_name|default:'Пользователь' }}
+
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="{% url 'auth:edit' %}">
+                            профиль
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'ordersapp:orders_list' %}">
+                            заказы
+                        </a>
+                    </li>
+                    {% if user.is_superuser %}
+                    <li>
+                        <a href="{% url 'admin_staff:users' %}">
+                            админка
+                        </a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+                <a href="{% url 'basket:view' %} "
+                   class="{% if request.resolver_match.namespace == 'basket' %}active{% endif %}">
                 <span>
                     {% if basket %}
                         {{ basket.0.total_cost|floatformat:0 }} руб
                         ({{ basket.0.total_quantity }} шт)
                     {% endif %}
                 </span>
-            </a>
+                </a>
+            </div>
         </li>
-        {% if user.is_superuser %}
-        <li>
-            <a href="{% url 'admin_staff:users' %}">админка</a>
-        </li>
-        {% endif %}
+
 
         {% endif %}
         <li>
             {% if user.is_authenticated %}
-              <a href="{% url 'auth:logout' %}">выйти</a>
+            <a href="{% url 'auth:logout' %}">выйти</a>
             {% else %}
-              <a href="{% url 'auth:login' %}">войти</a>
+            <a href="{% url 'auth:login' %}">войти</a>
             {% endif %}
         </li>
     </ul>
