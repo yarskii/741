@@ -9,6 +9,7 @@ window.onload = function () {
         _quantity = parseInt($('input[name="orderitems-' + i + '-quantity"]').val());
         _price = parseInt($('.orderitems-' + i + '-price').text().replace(',', '.'));
         quantity_arr[i] = _quantity;
+
         if (_price) {
             price_arr[i] = _price;
         } else {
@@ -64,9 +65,9 @@ window.onload = function () {
         }
         orderSummaryUpdate(price_arr[orderitem_num], delta_quantity);
         });
-    }
+
     $('.order_form select').change(function () {
         var target = event.target;
             console.log(target);
     });
-}
+};

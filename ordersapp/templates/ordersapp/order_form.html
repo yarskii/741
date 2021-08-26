@@ -1,6 +1,8 @@
 {% extends "geekshop/base.html" %}
 {% load static %}
 
+
+
 {% block content %}
    {% include 'ordersapp/includes/inc_order_summary.html' %}
    <div class="order_form">
@@ -51,5 +53,10 @@
            {% include 'ordersapp/includes/inc_order_actions.html' %}
        </form>
    </div>
+
+{% block js %}
+    <script src="{% static '/ordersapp/script.js' %}"></script>
+    <script src="{% static '/ordersapp/jquery.formset.js' %}"></script>
+{% endblock %}
 
 {% endblock %}
