@@ -106,7 +106,7 @@ class OrderUpdate(LoginRequiredMixin, UpdateView):
         return super(OrderUpdate, self).form_valid(form)
 
 
-class OrderDelete(LoginRequiredMixin,DeleteView):
+class OrderDelete(LoginRequiredMixin, DeleteView):
     model = Order
     success_url = reverse_lazy('order:orders_list')
 
