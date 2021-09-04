@@ -58,9 +58,15 @@ class Product(models.Model):
         default=0,
     )
 
+    is_active = models.BooleanField(default=True)
+
     def __str__(self):
         return f"{self.name} ({self.category.name}) - {self.pk}"
 
     class Meta:
         verbose_name = 'товар'
         verbose_name_plural = 'товары'
+
+    @staticmethod
+    def get_items():
+        return Product.objects.filter(is_active=True).order_by('category', 'name')
