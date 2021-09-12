@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 
+from django.db.models import F, Q
+
 
 @login_required
 def basket(request):
