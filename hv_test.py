@@ -29,6 +29,8 @@ class UserBehavior(TaskSet):
 
     def on_stop(self):
         logout(self)
+
+
 @task
 class WebsiteUser(HttpUser):
     task_set = UserBehavior
